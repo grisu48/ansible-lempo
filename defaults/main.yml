@@ -1,2 +1,24 @@
 ---
 # defaults file for lempo
+
+# Don't install default page by default
+setup_default_page: false
+default_page_hostname: "localhost"
+
+# Don't install additional modules by default
+mediawiki: false
+nextcloud: false
+lychee: false
+
+# nginx settings
+nginx_user: "nginx"
+nginx_group: "nginx"
+
+# PHP settings
+php_memlimit: "128M"
+php_uploads: "On"
+php_maxuploadsize: "256M"
+php_maxuploads: "20"
+# TODO: Memcache
+php_socket: "/var/run/php-fpm.sock"
+php_chdir: "/srv/www"

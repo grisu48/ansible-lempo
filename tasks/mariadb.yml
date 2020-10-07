@@ -1,0 +1,9 @@
+---
+# Configure mariadb
+
+- name: Ensure mariadb is enabled
+  systemd:
+    name: mariadb
+    state: started
+    enabled: yes
+  tags: ['mariadb']

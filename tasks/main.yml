@@ -1,2 +1,12 @@
 ---
 # tasks file for lempo
+
+- include: install_suse.yml
+  when: ansible_distribution == 'SLES' or ansible_distribution == 'SUSE' or ansible_distribution == 'openSUSE Leap'
+# TODO: Include for other distributions as well
+
+
+- include: mariadb.yml
+- include: php.yml
+- include: default-page.yml
+  when: setup_default_page == true
