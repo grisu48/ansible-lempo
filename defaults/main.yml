@@ -31,3 +31,10 @@ php_maxuploads: "20"
 # TODO: Memcache
 php_socket: "/var/run/php-fpm.sock"
 php_chdir: "/srv/www"
+
+# MariaDB settings
+innodb_config: false
+innodb_cache_size: "256M"
+innodb_io_cap: "4000"
+innodb_no_double_write: false
+innodb_file_format: "Barracuda"

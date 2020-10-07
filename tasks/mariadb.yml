@@ -7,3 +7,14 @@
     state: started
     enabled: yes
   tags: ['mariadb']
+  
+- name: Ensure innodb is configured
+  template:
+    src: innodb.conf.j2
+    dest: /etc/my.cnf.d/innodb.conf
+    owner: root
+    group: root
+    mode: 0644
+  tags: ['mariadb']
+  notify: restart mariadb
+  when: innodb_config == true

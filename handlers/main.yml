@@ -9,5 +9,9 @@
   service:
     name: php-fpm
     state: restarted
+- name: restart mariadb
+  service:
+    name: mariadb
+    state: restarted
 - name: reload firewalld
   shell: firewall-cmd --reload
