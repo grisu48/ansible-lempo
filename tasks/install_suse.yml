@@ -7,24 +7,33 @@
     name: ['nginx', 'mariadb', 'php7','php7-gd','php7-gettext','php7-mbstring','php7-mysql','php7-pear', 'php7-json', 'php7-fpm','php7-openssl', 'ImageMagick', 'php7-pear', 'php7-intl', 'php7-mbstring', 'php7-zip', 'php7-sqlite', 'php7-gd', 'php7-bz2', 'php7-ctype', 'php7-iconv', 'php7-fileinfo', 'php7-dom', 'vim-plugin-nginx']
     state: present
   tags: ['nginx','php','mariadb']
+- name: Ensure apcu memcache is installed
+  zypper:
+    name: ['php7-APCu']
+    state: present
+  tags: ['php','memcache']
+  when: apcu_enable == true
+  notify: restart php-fpm
 - name: Ensure modules for MediaWiki are installed
   zypper:
     name: ['ImageMagick', 'php7-pear', 'php7-intl', 'php7-mbstring', 'php7-zip', 'php7-sqlite', 'php7-gd', 'php7-bz2', 'php7-ctype', 'php7-iconv', 'php7-fileinfo', 'php7-dom']
     state: present
-  tags: ['nginx','php','mediawiki']
+  tags: ['php','mediawiki']
   when: mediawiki == true
   notify: restart php-fpm
 - name: Ensure modules for NextCloud are installed
   zypper:
     name: ['php7-xmlreader', 'php7-xmlwriter', 'php7-curl', 'php7-posix', 'php7-imagick', 'php7-opcache', 'php7-APCu']
     state: present
-  tags: ['nginx','php','nextcloud']
+  tags: ['php','nextcloud']
   when: nextcloud == true
   notify: restart php-fpm
 - name: Ensure modules for Lychee are installed
   zypper:
     name: ['php7-exif']
     state: present
-  tags: ['nginx','php','lychee']
+  tags: ['php','lychee']
   when: lychee == true
   notify: restart php-fpm
+  
+  

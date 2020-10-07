@@ -9,3 +9,5 @@
   service:
     name: php-fpm
     state: restarted
+- name: reload firewalld
+  shell: firewall-cmd --reload

@@ -5,10 +5,19 @@
 setup_default_page: false
 default_page_hostname: "localhost"
 
-# Don't install additional modules by default
+# Additional modules
 mediawiki: false
 nextcloud: false
 lychee: false
+
+# memcache
+apcu_enable: false
+# shared memory size
+apcu_shm_size: "32M"
+
+# firewall
+config_firewall: false
+firewall_zone: "public"
 
 # nginx settings
 nginx_user: "nginx"

@@ -925,9 +925,15 @@ default_socket_timeout = 60
 ;extension=xmlrpc
 ;extension=xsl
 
-;# TODO: Memcache
-; Enable memcache
-; apc.enable_cli = 1
+{% if apcu_enable == true %}
+; Enable APCu memcache
+apc.enabled = 1
+apc.enable_cli = 1
+apc.shm_size = {{apcu_shm_size}}
+{% else %}
+; APCu memcache disabled
+; apc.enable_cli = 0
+{% endif %}
 
 ;;;;;;;;;;;;;;;;;;;
 ; Module Settings ;
