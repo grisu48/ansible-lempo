@@ -1,11 +1,13 @@
 ---
 # tasks file for lempo
 
-- include: install_suse.yml
-  when: ansible_distribution == 'SLES' or ansible_distribution == 'SUSE' or ansible_distribution == 'openSUSE Leap'
-# TODO: Include for other distributions as well
+ 
+- name: include distribution specific vars
+  include_vars: "{{ ansible_distribution }}_{{ ansible_distribution_version }}.yml"
+#- name: include distribution specific install
+#  include: "{{ ansible_distribution }}_{{ ansible_distribution_version }}.yml"
 
-
+- include: install.yml
 - include: mariadb.yml
 - include: php.yml
 - include: firewall.yml

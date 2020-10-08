@@ -4,7 +4,7 @@
 - name: Ensure php.ini is configured
   template:
     src: php.ini.j2
-    dest: /etc/php7/cli/php.ini
+    dest: "{{php_ini}}"
     owner: root
     group: root
     mode: 0644
@@ -14,7 +14,7 @@
 - name: Ensure php-fpm.conf is configured
   template:
     src: php-fpm.conf.j2
-    dest: /etc/php7/fpm/php-fpm.conf
+    dest: "{{php_fpm_conf}}"
     owner: root
     group: root
     mode: 0644
@@ -24,7 +24,7 @@
 - name: Ensure www.conf is configured
   template:
     src: www.conf.j2
-    dest: /etc/php7/fpm/php-fpm.d/www.conf
+    dest: "{{php_www_conf}}"
     owner: root
     group: root
     mode: 0644

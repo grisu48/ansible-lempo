@@ -11,7 +11,7 @@
 - name: Ensure default page exists
   template:
     src: index.html.j2
-    dest: /srv/www/default/index.html
+    dest: "{{www_dir}}/default/index.html"
     owner: "{{nginx_user}}"
     group: "{{nginx_group}}"
     mode: 0755
@@ -19,7 +19,7 @@
 - name: Ensure phpinfo page exists
   template:
     src: phpinfo.php.j2
-    dest: /srv/www/default/phpinfo.php
+    dest: "{{www_dir}}/default/phpinfo.php"
     owner: "{{nginx_user}}"
     group: "{{nginx_group}}"
     mode: 0755
@@ -27,7 +27,7 @@
 - name: Ensure default page nginx template exists
   template:
     src: default-www.j2
-    dest: /etc/nginx/vhosts.d/default-www.conf
+    dest: "{{vhosts_dir}}/default-www.conf"
     owner: root
     group: root
     mode: 0644

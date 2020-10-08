@@ -71,7 +71,7 @@ A bit more advanced example for the imaginary `jellyfish` test server
          - role: lempo
            vars:
              setup_default_page: true
-             default_page_hostname: "jellyfish"
+             default_page_hostname: "{{ansible_host}}"
              apcu_enable: true
              php_memlimit: "128M"
              apcu_shm_size: "32M"

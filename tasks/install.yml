@@ -3,37 +3,36 @@
 
 
 - name: Ensure LEMP software is installed
-  zypper:
+  package:
     name: "{{ lemp_packages }}"
     state: present
   tags: ['nginx','php','mariadb']
 - name: Ensure apcu memcache is installed
-  zypper:
-    name: ['php7-APCu']
+  package:
+    name: "{{ apcu_packages }}"
     state: present
   tags: ['php','memcache']
   when: apcu_enable == true
   notify: restart php-fpm
 - name: Ensure modules for MediaWiki are installed
-  zypper:
-    name: ['ImageMagick', 'php7-pear', 'php7-intl', 'php7-mbstring', 'php7-zip', 'php7-sqlite', 'php7-gd', 'php7-bz2', 'php7-ctype', 'php7-iconv', 'php7-fileinfo', 'php7-dom']
+  package:
+    name: "{{ mediawiki_packages }}"
     state: present
   tags: ['php','mediawiki']
   when: mediawiki == true
   notify: restart php-fpm
 - name: Ensure modules for NextCloud are installed
-  zypper:
-    name: ['php7-xmlreader', 'php7-xmlwriter', 'php7-curl', 'php7-posix', 'php7-imagick', 'php7-opcache', 'php7-APCu']
+  package:
+    name: "{{ nexcloud_packages }}"
     state: present
   tags: ['php','nextcloud']
   when: nextcloud == true
   notify: restart php-fpm
 - name: Ensure modules for Lychee are installed
-  zypper:
-    name: ['php7-exif']
+  package:
+    name: "{{ lychee_packages }}"
     state: present
   tags: ['php','lychee']
   when: lychee == true
   notify: restart php-fpm
-  
   

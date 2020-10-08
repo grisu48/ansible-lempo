@@ -1,0 +1,18 @@
+---
+# openSUSE Leap 15.2 specific variables
+
+## Software packages
+
+lemp_packages: ['nginx', 'mariadb', 'php7','php7-gd','php7-gettext','php7-mbstring','php7-mysql','php7-pear', 'php7-json', 'php7-fpm','php7-openssl', 'ImageMagick', 'php7-pear', 'php7-intl', 'php7-mbstring', 'php7-zip', 'php7-sqlite', 'php7-gd', 'php7-bz2', 'php7-ctype', 'php7-iconv', 'php7-fileinfo', 'php7-dom', 'vim-plugin-nginx']
+apcu_packages: ['php7-APCu']
+mediawiki_packages: ['ImageMagick', 'php7-pear', 'php7-intl', 'php7-mbstring', 'php7-zip', 'php7-sqlite', 'php7-gd', 'php7-bz2', 'php7-ctype', 'php7-iconv', 'php7-fileinfo', 'php7-dom']
+nexcloud_packages: ['php7-xmlreader', 'php7-xmlwriter', 'php7-curl', 'php7-posix', 'php7-imagick', 'php7-opcache', 'php7-APCu']
+lychee_packages: ['php7-exif']
+
+## OS-Specific directories
+
+www_dir: "/srv/www"
+vhosts_dir: "/etc/nginx/vhosts.d"
+php_ini: "/etc/php7/cli/php.ini"
+php_fpm_conf: "/etc/php7/fpm/php-fpm.conf"
+php_www_conf: "/etc/php7/fpm/php-fpm.d/www.conf"
