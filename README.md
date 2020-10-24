@@ -8,6 +8,8 @@ Lempo is a configurable ansible role for setting up a LEMP (Linux, nginx, MariaD
 
 * `default` pages does not work without manually setting `server_name` (`nginx.conf` contains default config)
 
+* Add support for opcode cache in `php.ini`
+
 ## Post-Install steps
 
 * MariaDB should be secured via `mysql_secure_installation`
