@@ -1,8 +1,8 @@
 # Lempo
 
-Lempo is a configurable ansible role for setting up a LEMP (Linux, nginx, MariaDB, PHP) server. This role works with
+Lempo is a configurable ansible role for setting up a LEMP (Linux, `nginx`, `mariadb`, `php`) server. This role works currently with
 
-* openSUSE Leap
+- openSUSE Leap 15.2
 
 ## TODOs
 
@@ -12,7 +12,7 @@ Lempo is a configurable ansible role for setting up a LEMP (Linux, nginx, MariaD
 
 ## Post-Install steps
 
-* MariaDB should be secured via `mysql_secure_installation`
+* Secure MariaDB with `mysql_secure_installation`
 
 ## Role Variables
 --------------
@@ -25,17 +25,17 @@ Include additional php modules for specific installations:
 	nextcloud: false                    # Install additional php modules for NextCloud
 	lychee: false                       # Install additional php modules for Lychee
 
-Configure memcache (currently only [APCu](https://www.php.net/manual/en/book.apcu.php))
+Configure a memcache (currently only [APCu](https://www.php.net/manual/en/book.apcu.php) available)
 
 	apcu_enable: false                   # enable APCu memcache
 	apcu_shm_size: "32M"                 # shared memory size
 
-Firewall configuation, which is by default disabled
+Firewall configuation, which is disable by default
 
 	config_firewall: false               # Enable firewall configuration
 	firewall_zone: "public"              # Firewall zone to configure
 
-Some custom `nginx` settings
+Custom `nginx` settings
 
 	nginx_user: "nginx"                  # Default nginx user (for permission ecc.)
 	nginx_group: "nginx"                 # Default nginx group (for permission ecc.)
@@ -89,3 +89,5 @@ MIT
 ## Author Information
 
 phoenix
+
+Have a lot of fun!
